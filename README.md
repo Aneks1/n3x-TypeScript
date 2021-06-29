@@ -20,8 +20,4 @@ class thisIsAnEvent extends Event {
 export default thisIsAnEvent
 ```
 
-Um, yea, I think I will add more things in the future. Yea, with future i mean that in 3 hours I will add the command handler, the load commands and all the commands from the JavaScript version of n3x. 
-
-I think I will also update this README.
-
-I'm doing this in class and I need to finish the exam, so cya later :P
+UPDATE: I just ralized that there is an easiest way to make the event handler, so I'll be working on that the next hours.
