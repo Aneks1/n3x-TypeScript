@@ -20,4 +20,4 @@ class thisIsAnEvent extends Event {
 export default thisIsAnEvent
 ```
 
-UPDATE: I just ralized that there is an easiest way to make the event handler, so I'll be working on that the next hours.
+UPDATE: I just realized that there is an easier way to make the event handler, so I'll be working on that the next hours.
