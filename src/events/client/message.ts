@@ -12,7 +12,7 @@ const messageEvent = new Event({
             else if(data) { 
                 const numCount = parseInt(message.content)
                 if(data == null) return
-                if(!Number.isNaN(numCount) && (data.Current + 1 == numCount && data.id != message.author.id)) { data = await countThing.findOneAndUpdate({ id: message.author.id, Guild: message.guild.id, Current: numCount}); console.log('New current number ' + data?.Current); if(data != null) data.save()}
+                if(!Number.isNaN(numCount) && (data.Current + 1 == numCount && data.id != message.author.id)) { data = await countThing.findOneAndUpdate({ id: message.author.id, Guild: message.guild.id, Current: numCount}); console.log('New current number ' + numCount); if(data != null) data.save()}
                 else { message.delete() }
             } else { message.delete()}
         }
