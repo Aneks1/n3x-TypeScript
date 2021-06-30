@@ -6,22 +6,17 @@ Ok, so i already made a [repository](https://github.com/ItsAmex/n3x) for n3x. Bu
 So, this is how you add an event:
 
 ```ts
-class thisIsAnEvent extends Event {
-    constructor() {
-        super()
-        this.eventName = 'insertEventName'
+import Event from '../../handlers/event-handler'
 
-        this.execute = async function() {
-            //All your code goes here :D
-        }
+const thisIsAnEvent = new Event({
+    name: 'ready',
+    run: async function() {
+        // Ur code here
     }
-}
+})
 
 export default thisIsAnEvent
 ```
 
-Um, yea, I think I will add more things in the future. Yea, with future i mean that in 3 hours I will add the command handler, the load commands and all the commands form the JavaScript version of n3x. 
-
-I think I will also update this README.
-
-I'm doing this in class and I need to finish the exam, so cya later :P
+Yea, there was an easier way to make the event handler, so I added the new way to make a new event.
+Working on command handler.

@@ -14,6 +14,10 @@ class Event {
     public execute(...args: any[]): void {
         // So, in teh event files u need to do this.execute = function() and then u write the code
     }
+    constructor({name = '', run = async function(...args:any[]) {} }) {
+        this.eventName = name
+        this.execute = run
+    }
 }
 
 export default Event
