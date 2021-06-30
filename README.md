@@ -9,7 +9,7 @@ So, this is how you add an event:
 import Event from '../../handlers/event-handler'
 
 const thisIsAnEvent = new Event({
-    name: 'ready',
+    name: 'insertEventName',
     run: async function() {
         // Ur code here
     }
