@@ -7,11 +7,11 @@ const countSchema = new Schema({
 });
 
 export interface countsystem extends Document<any> {
-  id: string;
-  Guild: string;
-  Current: number;
+  id: string,
+  Guild: string,
+  Current: number,
 }
 
-const countthing = model<countsystem>("counts", countSchema);
+const countthing = model<countsystem>("counts", countSchema)
 
-export default countthing;
+export default countthing

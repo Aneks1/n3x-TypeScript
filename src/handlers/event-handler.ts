@@ -2,7 +2,7 @@ import client from "../n3x"
 import chalk from "chalk"
 
 class Event {
-    public eventName: string = ''
+    private eventName: string = ''
 
     public run() {
         console.log(chalk.blueBright('> ') + 'Reading event ' + chalk.blueBright(this.eventName))
@@ -11,7 +11,7 @@ class Event {
         })
     }
 
-    public execute(...args: any[]): void {
+    private execute(...args: any[]): void {
         // So, in teh event files u need to do this.execute = function() and then u write the code
     }
     constructor({name = '', run = async function(...args:any[]) {} }) {
