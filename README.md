@@ -18,5 +18,33 @@ const thisIsAnEvent = new Event({
 export default thisIsAnEvent
 ```
 
-Yea, there was an easier way to make the event handler, so I added the new way to make a new event.
-Working on command handler.
+And this is how you add a command:
+```ts
+import Command from '../../handlers/command-handler'
+
+const thisIsACommand = new Command({
+    name: 'insertCommandName',
+    // Here u add all the parameters.
+    run: async function() {
+        // Ur code here
+    }
+})
+
+export default thisIsACommand
+```
+
+## Command Parameters
+
+```
+name: ''
+permissions: ['']
+disabled: false
+guildCommand: true
+requiredRoles: ['']
+allowedChannels: ['']
+expectedArgs: ''
+minArgs: 0
+maxArgs: 0
+```
+
+Working on commands.

@@ -5,7 +5,7 @@ import { error } from '../assets/emojis.json'
 import guildThing from "../schemas/guild-schema"
 
 class Command {
-    private commandOptions = { commandName: '', permissions: [''], disabled: false, guildCommand: true, requiredRoles: [''], allowedChannels: [''], expectedArgs: '', minArgs: 0, maxArgs: 0 }
+    private commandOptions = { name: '', permissions: [''], disabled: false, guildCommand: true, requiredRoles: [''], allowedChannels: [''], expectedArgs: '', minArgs: 0, maxArgs: 0 }
 
     private validatePermissions() {
         const validPermissions = ['CREATE_INSTANT_INVITE', 'KICK_MEMBERS', 'BAN_MEMBERS', 'ADMINISTRATOR', 'MANAGE_CHANNELS', 'MANAGE_GUILD', 'ADD_REACTIONS', 'VIEW_AUDIT_LOG', 'PRIORITY_SPEAKER', 'STREAM', 'VIEW_CHANNEL', 'SEND_MESSAGES', 'SEND_TTS_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'USE_EXTERNAL_EMOJIS', 'VIEW_GUILD_INSIGHTS', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME', 'MANAGE_NICKNAMES', 'MANAGE_ROLES', 'MANAGE_WEBHOOKS', 'MANAGE_EMOJIS'] as PermissionResolvable[]
@@ -28,7 +28,7 @@ class Command {
 
     public run() {
 
-        console.log(chalk.magentaBright('> ') + 'Reading command ' + chalk.magentaBright(this.commandOptions.commandName))
+        console.log(chalk.magentaBright('> ') + 'Reading command ' + chalk.magentaBright(this.commandOptions.name))
         client.on('message', async (message: Message) => {
 
             // Split on any number of spaces
@@ -39,7 +39,7 @@ class Command {
 
             if(!data || !prefix) prefix = 'n!'
 
-            if(name != prefix + this.commandOptions.commandName) return
+            if(name != prefix + this.commandOptions.name) return
 
             this.validatePermissions()
             this.validateRoles(message)
@@ -79,8 +79,8 @@ class Command {
         // This changes in command files.
     }
 
-    constructor({ commandName = '', permissions = [''], disabled = false, guildCommand = true, requiredRoles = [''], allowedChannels = [''], expectedArgs = '', minArgs = 0, maxArgs = 0, run = async function(...args:any[]) {} }) {
-        this.commandOptions.commandName = commandName
+    constructor({ name = '', permissions = [''], disabled = false, guildCommand = true, requiredRoles = [''], allowedChannels = [''], expectedArgs = '', minArgs = 0, maxArgs = 0, run = async function(...args:any[]) {} }) {
+        this.commandOptions.name = name
         this.commandOptions.permissions = permissions
         this.commandOptions.disabled = disabled
         this.commandOptions.guildCommand = guildCommand
