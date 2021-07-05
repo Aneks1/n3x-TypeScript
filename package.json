@@ -19,6 +19,7 @@
     "gradient-string": "^1.2.0",
     "jimp": "^0.16.1",
     "mongoose": "^5.12.14",
+    "pet-pet-gif": "^1.0.8",
     "ts-node": "^10.0.0"
   },
   "devDependencies": {

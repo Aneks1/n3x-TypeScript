@@ -4,6 +4,7 @@ import confiJson from './config.json'
 import mongoose from 'mongoose'
 import chalk from 'chalk'
 import loadEvents from '../handlers/load-events'
+import loadCommands from '../handlers/load-commands'
 
 //this is a class
 export default class n3x extends Client {
@@ -36,9 +37,14 @@ export default class n3x extends Client {
     public loadEvents() {
         ['client', 'guild'].forEach(e => loadEvents(e))
     }
+
+    public loadCommands() {
+        loadCommands('.././commands')
+    } 
 }
 
 export const client = new n3x()
 client.start(confiJson.token)
 client.connectToMongo(confiJson.mongoPath)
 client.loadEvents()
+client.loadCommands()

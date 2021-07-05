@@ -3,7 +3,7 @@ import Command from "../../handlers/command-handler"
 import guildThing from "../../schemas/guild-schema"
 
 const setprefixCommand = new Command({
-    commandName: 'set-prefix',
+    name: 'set-prefix',
     minArgs: 1,
     maxArgs: 1,
     expectedArgs: '<prefix>',
@@ -11,7 +11,7 @@ const setprefixCommand = new Command({
     permissions: ['ADMINISTRATOR'],
     run: async function (message: Message, args: string[]) {
         let data = await guildThing.findOneAndUpdate({ Guild: message.guild?.id, Prefix: args[0] })
-        if(!data) { data = new guildThing({ Guild: message.guild?.id, Prefix: args[0] }); data.save(); message.channel.send( new MessageEmbed().setTitle(':gear: Prefix Changed').setDescription('Server prefix was changed to ' + args[0]).setColor('#846bd6')) }
+        if(!data) { data = new guildThing({ Guild: message.guild?.id, Prefix: args[0] }); data.save(); message.channel.send( new MessageEmbed().setTitle(':gear: Prefix Changed').setDescription('Server prefix was changed to ' + args[0]).setColor('#846bd6')); return }
         if(data != null) data.save()
         message.channel.send( new MessageEmbed().setTitle(':gear: Prefix Changed').setDescription('Server prefix was changed to ' + args[0]).setColor('#846bd6'))
     }
