@@ -12,6 +12,6 @@ export interface countsystem extends Document<any> {
   Current: number,
 }
 
-const countthing = model<countsystem>("counts", countSchema)
+const countThing = model<countsystem>("counts", countSchema)
 
-export default countthing
+export default countThing

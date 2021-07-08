@@ -1,4 +1,4 @@
-import { Message, MessageEmbed, TextChannel } from "discord.js"
+import { Message, MessageEmbed, TextChannel, MessageReaction } from "discord.js"
 import Command from "../../handlers/command-handler"
 import client from "../../n3x"
 
@@ -38,7 +38,7 @@ const suggestCommand = new Command({
             return
         }
 
-        await channel?.send(suggestionEmbed).then((sentMessage: Message) => sentMessage.react('✅')).then((reaction: any) => reaction.message.react('❎'))
+        await channel?.send(suggestionEmbed).then((sentMessage: Message) => sentMessage.react('✅')).then((reaction: MessageReaction) => reaction.message.react('❎'))
 
         const successEmbed = new MessageEmbed()
         .setTitle('✅ Suggestion Sent')
