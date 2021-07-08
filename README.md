@@ -48,3 +48,4 @@ maxArgs: 0
 ```
 
 Working on commands.
+Ignore user-pfp.png, i added it to .gitignore but doesnt work.
