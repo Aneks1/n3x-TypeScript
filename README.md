@@ -1,50 +1,17 @@
 ![n3x](https://github.com/ItsAmex/n3x-TypeScript/blob/main/github/n3x-banner.png)
 
-Ok, so i already made a [repository](https://github.com/ItsAmex/n3x) for n3x. But I was bored (yea, surprise) and I changed all to TypeScript because TypeScript is cool. Now n3x is in English and coded in TypeScript.
+Ok, so i already made a [repository](https://github.com/ItsAmex/n3x) for n3x, but I see a lot of Discord Bots coded in JavaScript, but really, I have never seen a good bot with TypeScript before (it doesn't mean they don't exist), so here it is, n3x.
 
-. . . I think I should teach you how to use some things.
-So, this is how you add an event:
+## Features :D
 
-```ts
-import Event from '../../handlers/event-handler'
+• Moderation Commands
 
-const thisIsAnEvent = new Event({
-    name: 'insertEventName',
-    run: async function() {
-        // Ur code here
-    }
-})
+• "FORDIBBEN-WORD-LIST"
 
-export default thisIsAnEvent
-```
+• Leveling System
 
-And this is how you add a command:
-```ts
-import Command from '../../handlers/command-handler'
+• Custom Prefix
 
-const thisIsACommand = new Command({
-    name: 'insertCommandName',
-    // Here u add all the parameters.
-    run: async function() {
-        // Ur code here
-    }
-})
+• Hey, I won't say you anything else, check the code and discover other features by yourself!
 
-export default thisIsACommand
-```
-
-## Command Parameters
-
-```
-name: ''
-permissions: ['']
-disabled: false
-guildCommand: true
-requiredRoles: ['']
-allowedChannels: ['']
-expectedArgs: ''
-minArgs: 0
-maxArgs: 0
-```
-
-Ignore user-pfp.png, i added it to .gitignore but doesnt work.
+This bot was created for my Discord Server, but you can always use it as a template, change prefix, change the amount of gained xp, the allowed channels, yea, you know.
