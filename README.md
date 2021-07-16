@@ -1,4 +1,4 @@
-# n3x (TypeScript Version)
+# [n3x](https://github.com/ItsAmex/n3x/blob/main/github/banner.png)
 
 Ok, so i already made a [repository](https://github.com/ItsAmex/n3x) for n3x. But I was bored (yea, surprise) and I changed all to TypeScript because TypeScript is cool. Now n3x is in English and coded in TypeScript.
 
