@@ -14,4 +14,4 @@ Ok, so i already made a [repository](https://github.com/ItsAmex/n3x) for n3x, bu
 
 • Hey, I won't say you anything else, check the code and discover other features by yourself!
 
-This bot was created for my Discord Server, but you can always use it as a template, change prefix, change the amount of gained xp, the allowed channels, yea, you know.
+This bot was created for my Discord Server, but you can always use it as a template, change prefix, change the amount of gained xp, the allowed channels, yea, you know. But please, don't upload it to any website for making public bots (like top.gg or those websites).
