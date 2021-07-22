@@ -5,7 +5,7 @@ import { error } from '../assets/emojis.json'
 import guildThing from "../schemas/guild-schema"
 
 class Command {
-    private commandOptions = { name: '', permissions: [''], disabled: false, guildCommand: true, requiredRoles: [''], allowedChannels: [''], expectedArgs: '', minArgs: 0, maxArgs: 0 }
+    private commandOptions = { name: '', description: '', permissions: [''], disabled: false, guildCommand: true, requiredRoles: [''], allowedChannels: [''], expectedArgs: '', minArgs: 0, maxArgs: 0 }
 
     private validatePermissions() {
         const validPermissions = ['CREATE_INSTANT_INVITE', 'KICK_MEMBERS', 'BAN_MEMBERS', 'ADMINISTRATOR', 'MANAGE_CHANNELS', 'MANAGE_GUILD', 'ADD_REACTIONS', 'VIEW_AUDIT_LOG', 'PRIORITY_SPEAKER', 'STREAM', 'VIEW_CHANNEL', 'SEND_MESSAGES', 'SEND_TTS_MESSAGES', 'MANAGE_MESSAGES', 'EMBED_LINKS', 'ATTACH_FILES', 'READ_MESSAGE_HISTORY', 'MENTION_EVERYONE', 'USE_EXTERNAL_EMOJIS', 'VIEW_GUILD_INSIGHTS', 'CONNECT', 'SPEAK', 'MUTE_MEMBERS', 'DEAFEN_MEMBERS', 'MOVE_MEMBERS', 'USE_VAD', 'CHANGE_NICKNAME', 'MANAGE_NICKNAMES', 'MANAGE_ROLES', 'MANAGE_WEBHOOKS', 'MANAGE_EMOJIS'] as PermissionResolvable[]
@@ -69,7 +69,7 @@ class Command {
                 }
             }
 
-            if(args.length > this.commandOptions.maxArgs || args.length < this.commandOptions.minArgs) { message.channel.send(new MessageEmbed().setTitle(error + ' Error').setDescription(`Syntax error, please use ${name} ${this.commandOptions.expectedArgs}`).setColor('#ff2d2d')); return }
+            if(this.commandOptions.maxArgs != undefined) { if(args.length > this.commandOptions.maxArgs || args.length < this.commandOptions.minArgs) { message.channel.send(new MessageEmbed().setTitle(error + ' Error').setDescription(`Syntax error, please use ${name} ${this.commandOptions.expectedArgs}`).setColor('#ff2d2d')); return }}
 
             this.execute(message, args, client)
         })
@@ -79,8 +79,9 @@ class Command {
         // This changes in command files.
     }
 
-    constructor({ name = '', permissions = [''], disabled = false, guildCommand = true, requiredRoles = [''], allowedChannels = [''], expectedArgs = '', minArgs = 0, maxArgs = 0, run = async function(...args:any[]) {} }) {
+    constructor({ name = '', description = '', permissions = [''], disabled = false, guildCommand = true, requiredRoles = [''], allowedChannels = [''], expectedArgs = '', minArgs = 0, maxArgs = 0, run = async function(...args:any[]) {} }) {
         this.commandOptions.name = name
+        this.commandOptions.description = description
         this.commandOptions.permissions = permissions
         this.commandOptions.disabled = disabled
         this.commandOptions.guildCommand = guildCommand
