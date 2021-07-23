@@ -11,6 +11,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const chalk_1 = __importDefault(require("chalk"));
 const load_events_1 = __importDefault(require("../handlers/load-events"));
 const load_commands_1 = __importDefault(require("../handlers/load-commands"));
+const express_1 = __importDefault(require("express"));
 //this is a class
 class n3x extends discord_js_1.Client {
     constructor() {
@@ -42,6 +43,11 @@ class n3x extends discord_js_1.Client {
     loadCommands() {
         load_commands_1.default('.././commands');
     }
+    keepAlive(port) {
+        const app = express_1.default();
+        app.get('/', (request, response) => response.send('Hello World!'));
+        app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
+    }
 }
 exports.default = n3x;
 exports.client = new n3x();
@@ -49,3 +55,4 @@ exports.client.start(config_json_1.default.token);
 exports.client.connectToMongo(config_json_1.default.mongoPath);
 exports.client.loadEvents();
 exports.client.loadCommands();
+exports.client.keepAlive(5000);

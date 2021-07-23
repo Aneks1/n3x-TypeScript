@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 import chalk from 'chalk'
 import loadEvents from '../handlers/load-events'
 import loadCommands from '../handlers/load-commands'
+import express from 'express'
 
 //this is a class
 export default class n3x extends Client {
@@ -41,6 +42,14 @@ export default class n3x extends Client {
     public loadCommands() {
         loadCommands('.././commands')
     } 
+
+    public keepAlive(port: number) {
+        const app = express();
+    
+        app.get('/', (request, response) => response.send('Hello World!'));
+        
+        app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
+    }
 }
 
 export const client = new n3x()
@@ -48,3 +57,4 @@ client.start(confiJson.token)
 client.connectToMongo(confiJson.mongoPath)
 client.loadEvents()
 client.loadCommands()
+client.keepAlive(5000)
