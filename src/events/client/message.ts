@@ -33,7 +33,7 @@ const messageEvent = new Event({
         if(message.content == '<@!831905867687395401>') {
             let data = await guildThing.findOne({ Guild: message.guild?.id })
             let prefix = data?.Prefix || '$'
-            message.channel.send(new MessageEmbed().setTitle(':gear: Hi, I\'m n3x').setDescription('My guild prefix is ' + prefix + '. Use `help` to view all my commands.').setColor('#846bd6'))
+            message.channel.send(new MessageEmbed().setTitle(':gear: Hi, I\'m n3x').setDescription('My guild prefix is ' + '`' + prefix + '`. Use `help` to view all my commands.').setColor('#846bd6'))
         }
     }
 })

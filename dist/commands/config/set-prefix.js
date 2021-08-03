@@ -34,7 +34,7 @@ const setprefixCommand = new command_handler_1.default({
             }
             if (data != null)
                 data.save();
-            message.channel.send(new discord_js_1.MessageEmbed().setTitle(':gear: Prefix Changed').setDescription('Server prefix was changed to ' + args[0]).setColor('#846bd6'));
+            message.channel.send(new discord_js_1.MessageEmbed().setTitle(':gear: Prefix Changed').setDescription(`Server prefix was changed to` + '`' + args[0] + '`.').setColor('#846bd6'));
         });
     }
 });

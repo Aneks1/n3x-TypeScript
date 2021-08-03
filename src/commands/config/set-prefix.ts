@@ -13,7 +13,7 @@ const setprefixCommand = new Command({
         let data = await guildThing.findOneAndUpdate({ Guild: message.guild?.id, Prefix: args[0] })
         if(!data) { data = new guildThing({ Guild: message.guild?.id, Prefix: args[0] }); data.save(); message.channel.send( new MessageEmbed().setTitle(':gear: Prefix Changed').setDescription('Server prefix was changed to ' + args[0]).setColor('#846bd6')); return }
         if(data != null) data.save()
-        message.channel.send( new MessageEmbed().setTitle(':gear: Prefix Changed').setDescription('Server prefix was changed to ' + args[0]).setColor('#846bd6'))
+        message.channel.send( new MessageEmbed().setTitle(':gear: Prefix Changed').setDescription(`Server prefix was changed to` + '`' + args[0] + '`.').setColor('#846bd6'))
     }
 })
 

@@ -71,7 +71,7 @@ const messageEvent = new event_handler_1.default({
             if (message.content == '<@!831905867687395401>') {
                 let data = yield guild_schema_1.default.findOne({ Guild: (_c = message.guild) === null || _c === void 0 ? void 0 : _c.id });
                 let prefix = (data === null || data === void 0 ? void 0 : data.Prefix) || '$';
-                message.channel.send(new discord_js_1.MessageEmbed().setTitle(':gear: Hi, I\'m n3x').setDescription('My guild prefix is ' + prefix + '. Use `help` to view all my commands.').setColor('#846bd6'));
+                message.channel.send(new discord_js_1.MessageEmbed().setTitle(':gear: Hi, I\'m n3x').setDescription('My guild prefix is ' + '`' + prefix + '`. Use `help` to view all my commands.').setColor('#846bd6'));
             }
         });
     }

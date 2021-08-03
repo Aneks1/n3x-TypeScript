@@ -1,4 +1,4 @@
-![n3x](https://github.com/ItsAmex/n3x-TypeScript/blob/main/github/n3x-banner.png)
+                     ![n3x](https://github.com/ItsAmex/n3x-TypeScript/blob/main/github/n3x-banner.png)
 
 Ok, so i already made a [repository](https://github.com/ItsAmex/n3x) for n3x, but I see a lot of Discord Bots coded in JavaScript, but really, I have never seen a good bot with TypeScript before (it doesn't mean they don't exist), so here it is, n3x. dist is where the compiled typescript goes. I just use it to run the bot.
 
