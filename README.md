@@ -28,4 +28,5 @@ This bot was created for my Discord Server, but you can always use it as a templ
 
 To compile all the files, run this command in the terminal:
 ```
-tsc -p .```
+tsc -p .
+```
