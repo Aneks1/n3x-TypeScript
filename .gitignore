@@ -6,4 +6,4 @@ src/handlers/command-handler
 n3x.bat
 .vscode
 src/assets/user-pfp.png
-dist/util/config.json
+dist

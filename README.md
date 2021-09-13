@@ -23,3 +23,9 @@ Create a file called `config.json` inside `src/util`. Then write this
 ```
 
 This bot was created for my Discord Server, but you can always use it as a template, change prefix, change the amount of gained xp, the allowed channels, yea, you know. But please, don't upload it to any website for making public bots (like top.gg or those websites).
+
+## Compiling
+
+To compile all the files, run this command in the terminal:
+```
+tsc -p .```

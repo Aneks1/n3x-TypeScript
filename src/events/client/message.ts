@@ -5,7 +5,7 @@ import levelThing from '../../schemas/level-schema'
 import guildThing from '../../schemas/guild-schema'
 
 const messageEvent = new Event({
-    name: 'message',
+    name: 'messageCreate',
     run: async function(message: Message) {
 
         //All this code is for counting.

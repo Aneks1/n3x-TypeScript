@@ -5,7 +5,6 @@ class Event {
     private eventName: string = ''
 
     public run() {
-        console.log(chalk.blueBright('> ') + 'Reading event ' + chalk.blueBright(this.eventName))
         client.on(this.eventName, (...args: any[]) => {
             this.execute(...args)
         })
