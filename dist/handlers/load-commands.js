@@ -33,17 +33,40 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
+const n3x_1 = __importDefault(require("../n3x"));
+const guild_schema_1 = __importDefault(require("../schemas/guild-schema"));
 function loadCommands(dir) {
     return __awaiter(this, void 0, void 0, function* () {
+        let commandsArray = {};
         const files = fs_1.default.readdirSync(path_1.default.join(__dirname, dir));
         for (const file of files) {
             const commandFiles = fs_1.default.readdirSync(path_1.default.join(__dirname, dir, file));
             for (let commandFile of commandFiles) {
                 commandFile = commandFile.split('.')[0];
                 const command = (yield (Promise.resolve().then(() => __importStar(require(path_1.default.join(__dirname, dir, file, commandFile)))))).default;
-                yield command.run();
+                commandsArray[command.commandOptions.name] = command;
+                console.log(command.commandOptions.name);
             }
         }
+        n3x_1.default.on('messageCreate', (message) => __awaiter(this, void 0, void 0, function* () {
+            var _a, _b;
+            if (message.author.bot) {
+                return;
+            }
+            const data = yield guild_schema_1.default.findOne({ Guild: (_a = message.guild) === null || _a === void 0 ? void 0 : _a.id });
+            let prefix = data === null || data === void 0 ? void 0 : data.Prefix;
+            if (!data || !prefix)
+                prefix = 'n!';
+            const args = message.content.split(/[ ]+/);
+            const name = (_b = args.shift()) === null || _b === void 0 ? void 0 : _b.toLowerCase();
+            if (!name.startsWith(prefix))
+                return;
+            const command = commandsArray[name.replace(prefix, '')];
+            if (message.content.startsWith(prefix + command.commandOptions.name)) {
+                command.run();
+                return;
+            }
+        }));
     });
 }
 exports.default = loadCommands;

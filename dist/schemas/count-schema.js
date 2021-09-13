@@ -6,5 +6,5 @@ const countSchema = new mongoose_1.Schema({
     Guild: String,
     Current: Number,
 });
-const countThing = mongoose_1.model("counts", countSchema);
+const countThing = (0, mongoose_1.model)("counts", countSchema);
 exports.default = countThing;

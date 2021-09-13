@@ -13,7 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const n3x_1 = __importDefault(require("../n3x"));
-const chalk_1 = __importDefault(require("chalk"));
 class Event {
     constructor({ name = '', run = function (...args) {
         return __awaiter(this, void 0, void 0, function* () { });
@@ -23,7 +22,6 @@ class Event {
         this.execute = run;
     }
     run() {
-        console.log(chalk_1.default.blueBright('> ') + 'Reading event ' + chalk_1.default.blueBright(this.eventName));
         n3x_1.default.on(this.eventName, (...args) => {
             this.execute(...args);
         });

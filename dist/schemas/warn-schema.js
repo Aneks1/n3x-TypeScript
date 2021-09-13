@@ -6,5 +6,5 @@ const warnSchema = new mongoose_1.Schema({
     Guild: String,
     warns: Number
 });
-const warnThing = mongoose_1.model("warn", warnSchema);
+const warnThing = (0, mongoose_1.model)("warn", warnSchema);
 exports.default = warnThing;

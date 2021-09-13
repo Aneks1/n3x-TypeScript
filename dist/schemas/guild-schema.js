@@ -5,5 +5,5 @@ const guildSchema = new mongoose_1.Schema({
     Guild: String,
     Prefix: String,
 });
-const guildThing = mongoose_1.model("guild", guildSchema);
+const guildThing = (0, mongoose_1.model)("guild", guildSchema);
 exports.default = guildThing;

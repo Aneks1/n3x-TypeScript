@@ -8,5 +8,5 @@ const levelSchema = new mongoose_1.Schema({
     level: Number,
     toLevelUp: Number
 });
-const levelThing = mongoose_1.model("level", levelSchema);
+const levelThing = (0, mongoose_1.model)("level", levelSchema);
 exports.default = levelThing;

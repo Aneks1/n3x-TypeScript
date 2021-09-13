@@ -26,7 +26,7 @@ const readyEvent = new event_handler_1.default({
                 (_a = n3x_1.default.user) === null || _a === void 0 ? void 0 : _a.setActivity(statusArray[statusRandom][0], { type: statusArray[statusRandom][1] });
             };
             setInterval(randomStatus, 30000);
-            console.log(gradient_string_1.default('#aa00ff', '#00f2ff')([
+            console.log((0, gradient_string_1.default)('#aa00ff', '#00f2ff')([
                 '                                                     ',
                 '          ▄▄           ███████    ▄▄▄     ▄▄▄        ',
                 '          ██▀▀▀▀▀█▄   ██     ██     ▀█▄ ▄█▀          ',

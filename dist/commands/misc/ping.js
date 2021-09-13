@@ -21,14 +21,13 @@ const pingCommand = new command_handler_1.default({
             const pingEmbed = new discord_js_1.MessageEmbed()
                 .setTitle('🏓 Pong!')
                 .setColor('#846bd6');
-            message.channel.send(pingEmbed).then((msg) => {
-                const ping = msg.createdTimestamp - message.createdTimestamp;
-                const pingEmbed2 = new discord_js_1.MessageEmbed()
-                    .setTitle('🏓 Pong!')
-                    .setDescription(`My ping is ${ping}ms.`)
-                    .setColor('#846bd6');
-                msg.edit(pingEmbed2);
-            });
+            const msg = yield message.channel.send({ embeds: [pingEmbed] });
+            const ping = msg.createdTimestamp - message.createdTimestamp;
+            const pingEmbed2 = new discord_js_1.MessageEmbed()
+                .setTitle('🏓 Pong!')
+                .setDescription(`My ping is ${ping}ms.`)
+                .setColor('#846bd6');
+            msg.edit({ embeds: [pingEmbed2] });
         });
     }
 });
