@@ -1,4 +1,4 @@
-import { Client, Intents } from 'discord.js'
+import { Client } from 'discord.js'
 import confiJson from './config.json'
 import mongoose from 'mongoose'
 import chalk from 'chalk'
@@ -13,7 +13,7 @@ export default class n3x extends Client {
     }
 
     public loadEvents() {
-        ['client', 'guild'].forEach(e => loadEvents(e))
+        loadEvents('.././events')
         console.log(chalk.blueBright('> ') + 'All ' + chalk.blueBright('events') + ' loaded.')
     }
 
@@ -23,7 +23,7 @@ export default class n3x extends Client {
     } 
 }
 
-export const client = new n3x({ intents: 32767 })
+export const client = new n3x({ intents: 14159 })
 client.login(confiJson.token)
 client.connectToMongo(confiJson.mongoPath)
 client.loadEvents()

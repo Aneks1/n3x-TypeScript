@@ -13,7 +13,7 @@ const rankCommand = new Command({
         const user = message.mentions.users.first() || message.member
         let data = await levelThing.findOne({ Guild: message.guild.id, User: user.id })
         if(!data) { new MessageEmbed().setTitle(error + `Error`).setDescription('You are not ranked yet, send some messages first.').setColor('#ff2d2d'); return }
-        message.channel.send(new MessageEmbed().setTitle(`🏆 ${message.author.username}'s Rank`).addField('**XP: **', data.xp).addField('**Level: **', data.level).addField('**Next Level: **', data.toLevelUp - data.xp).setColor('#846bd6'))
+        message.reply({embeds: [new MessageEmbed().setTitle(`🏆 ${message.author.username}'s Rank`).addField('**Level: **', data.level + '').addField('**XP: **', data.xp + '/' + data.toLevelUp).setColor('#846bd6')] })
     }
 })
 

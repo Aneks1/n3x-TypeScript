@@ -1,5 +1,4 @@
 import client from "../n3x"
-import chalk from "chalk"
 
 class Event {
     private eventName: string = ''

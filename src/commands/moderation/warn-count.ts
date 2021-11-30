@@ -10,11 +10,30 @@ const setprefixCommand = new Command({
     guildCommand: true,
     permissions: ['ADMINISTRATOR'],
     run: async function (message: Message) {
+
         const member = message.mentions.members?.first() || message.member
         let data = await warnThing.findOne({ Guild: message.guild?.id, User: member?.id })
-        if(!data) { message.channel.send( new MessageEmbed().setTitle(`📜 ${member?.user.username}'s Warns`).setDescription(`${member} has no warns`).setColor('#846bd6')); return }
 
-        message.channel.send(new MessageEmbed().setTitle(`📜 ${member?.user.username}'s Warns`).setDescription(`${member} currently has ${data.warns} warns.`).setColor('#846bd6'))
+        if(!data) {
+            message.channel.send(
+                {
+                    embeds: [
+                        new MessageEmbed().setTitle(`📜 ${member?.user.username}'s Warns`).setDescription(`${member} has no warns`).setColor('#846bd6')
+                    ]
+                }
+            )
+
+            return
+        }
+                
+
+        message.channel.send(
+            {
+                embeds: [
+                    new MessageEmbed().setTitle(`📜 ${member?.user.username}'s Warns`).setDescription(`${member} currently has ${data.warns} warns.`).setColor('#846bd6')
+                ]
+            }
+        )
     }
 })
 

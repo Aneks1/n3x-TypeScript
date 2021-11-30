@@ -1,11 +1,17 @@
 import fs from 'fs'
+import path from 'path'
 
-export default async function loadEvents(dirs: string) {
+export default async function loadEvents(dir: string) {
 
-    const eventFiles = fs.readdirSync(`./dist/events/${dirs}`)
+    const files = fs.readdirSync(path.join(__dirname, dir))
 
-    for(const file of eventFiles) {
-        const event = (await(import(`../events/${dirs}/${file}`))).default
-        event.run()
+    for (const file of files) {
+        const eventTypes = fs.readdirSync(path.join(__dirname, dir, file))
+        for(let eventFile of eventTypes) {
+            eventFile = eventFile.split('.')[0]
+
+            const event = (await(import(path.join(__dirname, dir, file, eventFile)))).default
+            event.run()
+        }
     }
 }

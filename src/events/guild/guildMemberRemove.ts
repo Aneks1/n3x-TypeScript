@@ -22,8 +22,8 @@ const memberRemoveEvent = new Event({
             .setThumbnail(member.user.displayAvatarURL())
             .setFooter('ID: ' + member.user.id)
             
-        await(member.guild.channels.cache.get('743849979101315193') as TextChannel).send(byeEmbed)
-        await(member.guild.channels.cache.get('743878643352207463') as TextChannel).send(auditEmbed)
+        await(member.guild.channels.cache.get('743849979101315193') as TextChannel).send({ embeds: [byeEmbed] })
+        await(member.guild.channels.cache.get('743878643352207463') as TextChannel).send({ embeds: [auditEmbed] })
     }
 })
 
