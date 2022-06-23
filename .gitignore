@@ -1,9 +1,8 @@
 package-lock.json
 node_modules
 tsconfig.json
-src/util/config.json
+src/util/config.ts
 src/handlers/command-handler
 n3x.bat
 .vscode
-src/assets/user-pfp.png
 dist/

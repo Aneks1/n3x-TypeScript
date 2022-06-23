@@ -1,2 +1,2 @@
-import { client } from './util/client-config'
+import client from './Utils/client-config'
 export default client

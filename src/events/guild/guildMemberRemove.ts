@@ -1,10 +1,11 @@
 import { GuildMember, MessageEmbed, TextChannel } from 'discord.js'
-import Event from '../../handlers/event-handler'
+import Event from '../../Strucutres/Event'
 
 
-const memberRemoveEvent = new Event({
-    name: 'guildMemberAdd',
-    run: async function(member: GuildMember) {
+const memberRemoveEvent = new Event(
+    'guildMemberAdd',
+    
+    async function(member: GuildMember) {
 
 
 
@@ -15,6 +16,7 @@ const memberRemoveEvent = new Event({
             .setThumbnail(member.user.displayAvatarURL())
 
         const auditEmbed = new MessageEmbed()
+
             .setTitle(':outbox_tray: Member Left')
             .setAuthor(member.user.tag, member.user.displayAvatarURL())
             .setDescription(`${member} has left ${member.guild}`)
@@ -24,7 +26,8 @@ const memberRemoveEvent = new Event({
             
         await(member.guild.channels.cache.get('743849979101315193') as TextChannel).send({ embeds: [byeEmbed] })
         await(member.guild.channels.cache.get('743878643352207463') as TextChannel).send({ embeds: [auditEmbed] })
+
     }
-})
+)
 
 export default memberRemoveEvent

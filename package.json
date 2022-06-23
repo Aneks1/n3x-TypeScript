@@ -4,7 +4,8 @@
   "description": "",
   "main": "./dist/n3x.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
   },
   "keywords": [],
   "author": "",
@@ -17,9 +18,7 @@
     "discord.js": "^13.1.0",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
-    "gradient-string": "^1.2.0",
-    "jimp": "^0.16.1",
-    "mongoose": "^5.12.14",
+    "mongoose": "^6.3.8",
     "pet-pet-gif": "^1.0.8",
     "ts-node": "^10.0.0"
   },

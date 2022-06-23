@@ -1,7 +1,11 @@
-import levelThing from '../schemas/level-schema'
+
+// [    Imports    ] \\
+
+import levelThing from '../mongoSchemas/level-schema'
 import { Message, MessageEmbed } from 'discord.js'
 
 const roleIds = [
+
     '810179692467847178', 
     '810179786844405760', 
     '810179939907010560', 
@@ -12,6 +16,7 @@ const roleIds = [
     '810180446482595840', 
     '810180464231841833', 
     '810180511065964554'
+
 ]
 
 export default async function levels(message: Message) {
@@ -28,6 +33,7 @@ export default async function levels(message: Message) {
     )
 
     if(!data) {
+
         data = new levelThing(
             {
                 Guild: message.guild?.id, 
@@ -35,6 +41,7 @@ export default async function levels(message: Message) {
                 toLevelUp: 100 
             }
         )
+        
         data.save()
         return
     }
@@ -46,16 +53,18 @@ export default async function levels(message: Message) {
         data.level ++
         data.toLevelUp = (data.level + 1) * 75
         data.xp = 0
-
-        console.log(data)
         
         message.reply(
             {
                 embeds: [
+
                     new MessageEmbed()
-                    .setTitle(`⏫ ${message.author.username} Has Leveled Up`)
-                    .setDescription(`You have leveled up to level ${data.level}`)
-                    .setColor('#846bd6')
+
+                        .setTitle(`⏫ ${message.author.username} Has Leveled Up`)
+                        .setDescription(
+                            `You have leveled up to level ${data.level}`
+                        )
+                        .setColor('#846bd6')
                 ]
             }
         )  
@@ -72,9 +81,10 @@ export default async function levels(message: Message) {
 
         const roleToAdd = message.guild!.roles.cache.get(roleID)
 
-        if(!message.member?.roles.cache.has(roleID!)) {
+        if(!message.member?.roles.cache.has(roleID!))
+
             message.member?.roles.add(roleToAdd!)
-        }
+
     }
     data.save()
 }
