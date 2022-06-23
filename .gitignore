@@ -1,8 +1,7 @@
 package-lock.json
 node_modules
 tsconfig.json
-src/util/config.ts
-src/handlers/command-handler
+src/Utils/config.ts
 n3x.bat
 .vscode
 dist/
